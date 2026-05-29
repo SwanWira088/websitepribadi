@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 // Variable reactive untuk mengontrol buka/tutup menu di HP
 const isMenuOpen = ref(false)
@@ -13,9 +13,33 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isMenuOpen.value = false
 }
+
+const scrollProgress = ref(0)
+
+const handleScroll = () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  scrollProgress.value = (scrollTop / docHeight) * 100
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
+<div class="scroll-progress-bar" :style="{ width: scrollProgress + '%' }"></div>
+
+  <div class="cloud-bg">
+    <div class="cloud cloud-purple-1"></div>
+    <div class="cloud cloud-white"></div>
+    <div class="cloud cloud-purple-2"></div>
+  </div>
+
   <div class="app-container">
     <nav class="navbar">
       <div class="logo-container">
@@ -62,6 +86,38 @@ const closeMenu = () => {
 </template>
 
 <style>
+/* 1. Dark Mode: Saat class .dark-mode aktif di body */
+body.dark-mode {
+  --bg-app: #0a0a0a;
+  --bg-card: #171717;
+  --text-main: #f3f4f6;
+  --accent: #9333ea; /* Ungu */
+  --border-color: #262626;
+}
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent-purple);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px var(--accent-purple);
+}
+
+/* Terapkan variabel ke elemen */
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Ganti hardcoded color di .navbar, .card, dll jadi var() */
+.navbar { background: var(--bg-card); border-bottom: 1px solid var(--border-color); }
+.card, .sidebar, .item-card { background: var(--bg-card) !important; border: 1px solid var(--border-color) !important; }
+/* Dst... */
+
 /* Reset dasar & Tema Obsidian Black + Purple */
 :root {
   --bg-dark: #0a0a0a;
@@ -246,5 +302,60 @@ h1 a {
   .hamburger.is-active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+}
+
+/* =========================================
+   TAMBAHAN: STYLING BACKGROUND AWAN 
+   ========================================= */
+.cloud-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  z-index: -2; 
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  mix-blend-mode: screen;
+  animation: moveCloud infinite alternate ease-in-out;
+}
+
+.cloud-purple-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(147, 51, 234, 0) 70%);
+  top: -10%;
+  left: -10%;
+  animation-duration: 25s;
+}
+
+.cloud-white {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  bottom: -15%;
+  right: -5%;
+  animation-duration: 35s;
+}
+
+.cloud-purple-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0) 70%);
+  bottom: 10%;
+  left: 20%;
+  animation-duration: 28s;
+}
+
+@keyframes moveCloud {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(100px, 60px) scale(1.15) rotate(60deg); }
+  100% { transform: translate(-50px, 120px) scale(0.9) rotate(120deg); }
 }
 </style>
