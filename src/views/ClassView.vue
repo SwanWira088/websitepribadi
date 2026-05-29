@@ -1,7 +1,7 @@
 <template>
   <div class="class-container">
     <div class="header-section">
-      <h2>Data <span>Siswa</span></h2>
+      <h2>Data <span>My Friend</span> In Class</h2>
       <p class="badge">XI PPLG 2</p>
       <p class="badge">Total: {{ students.length }} Siswa</p>
     </div>
@@ -22,38 +22,38 @@
 import { ref } from 'vue';
 
 const students = ref([
-  { id: 1, noAbsen: 1, nama: 'Alifa Aprilyanti Wa da' },
+  { id: 1, noAbsen: 1, nama: 'Alifa Aprilyanti W' },
   { id: 2, noAbsen: 2, nama: 'Arvin Ferdian' },
-  { id: 3, noAbsen: 3, nama: 'Azwar Nurul Hidayah' },
+  { id: 3, noAbsen: 3, nama: 'Azwar Nurul H' },
   { id: 4, noAbsen: 4, nama: 'D saefulloh' },
   { id: 5, noAbsen: 5, nama: 'Dhiyya Ayu Maisaan' },
-  { id: 6, noAbsen: 6, nama: 'Dicky Abdul Rochman' },
+  { id: 6, noAbsen: 6, nama: 'Dicky Abdul R' },
   { id: 7, noAbsen: 7, nama: 'Farhan Al-Farizi' },
-  { id: 8, noAbsen: 8, nama: 'Fauzan Seva Nugraha' },
+  { id: 8, noAbsen: 8, nama: 'Fauzan Seva N' },
   { id: 9, noAbsen: 9, nama: 'Gio Maulana' },
   { id: 10, noAbsen: 10, nama: 'Kahfi Rahmatulloh' },
-  { id: 11, noAbsen: 11, nama: 'Kanzi Cibil Pratama Putra Mahendra' },
-  { id: 12, noAbsen: 12, nama: 'Midza Prada Al Ghifary' },
-  { id: 13, noAbsen: 13, nama: 'Muhammad Abdul Gani' },
-  { id: 14, noAbsen: 14, nama: 'Muhammad Luthfi Al Jihad' },
-  { id: 15, noAbsen: 15, nama: 'Muhammad Nabil Ibrahim' },
-  { id: 16, noAbsen: 16, nama: 'Muhammad Rizqy Fauzy' },
-  { id: 17, noAbsen: 17, nama: 'Muhammad Yogi Permana' },
-  { id: 18, noAbsen: 18, nama: 'Muhammad Adeng Maulana Yusuf' },
-  { id: 19, noAbsen: 19, nama: 'Muhammad Hanif Syahril S' },
-  { id: 20, noAbsen: 20, nama: 'Nabil Ramdan Abdullah' },
-  { id: 21, noAbsen: 21, nama: 'Nazwa Nurahma Fauzia' },
+  { id: 11, noAbsen: 11, nama: 'Kanzi Cibil P' },
+  { id: 12, noAbsen: 12, nama: 'Midza Prada Al G' },
+  { id: 13, noAbsen: 13, nama: 'Muhammad Abdul' },
+  { id: 14, noAbsen: 14, nama: 'Muhammad Luthfi' },
+  { id: 15, noAbsen: 15, nama: 'Muhammad Nabil' },
+  { id: 16, noAbsen: 16, nama: 'Muhammad Rizqy' },
+  { id: 17, noAbsen: 17, nama: 'Muhammad Yogi P' },
+  { id: 18, noAbsen: 18, nama: 'Muhammad Adeng' },
+  { id: 19, noAbsen: 19, nama: 'Muhammad Hanif S' },
+  { id: 20, noAbsen: 20, nama: 'Nabil Ramdan A' },
+  { id: 21, noAbsen: 21, nama: 'Nazwa Nurahma F' },
   { id: 22, noAbsen: 22, nama: 'Nizam Fauzan' },
-  { id: 23, noAbsen: 23, nama: 'Nur Fitri Khoerunnisa' },
-  { id: 24, noAbsen: 24, nama: 'Pramudya Wira Andhara' },
+  { id: 23, noAbsen: 23, nama: 'Nur Fitri K' },
+  { id: 24, noAbsen: 24, nama: 'Pramudya Wira A' },
   { id: 25, noAbsen: 25, nama: 'Rafly Rodiansyah' },
   { id: 26, noAbsen: 26, nama: 'Rahmat Rizal Alfauzi' },
   { id: 27, noAbsen: 27, nama: 'Rahmi Nurfazriah' },
   { id: 28, noAbsen: 28, nama: 'Raissa Adhi Pratama' },
-  { id: 29, noAbsen: 29, nama: 'Reditya Adha Yudesetiawan' },
-  { id: 30, noAbsen: 30, nama: 'Reisya Mutiara Ramadani' },
+  { id: 29, noAbsen: 29, nama: 'Reditya Adha Y' },
+  { id: 30, noAbsen: 30, nama: 'Reisya Mutiara R' },
   { id: 31, noAbsen: 31, nama: 'Rika Riski Nopiani' },
-  { id: 32, noAbsen: 32, nama: 'Salsa Nur afifah Rustandi' },
+  { id: 32, noAbsen: 32, nama: 'Salsa Nur Afifah R' },
   { id: 33, noAbsen: 33, nama: 'Teddy Heryawan' },
   { id: 34, noAbsen: 34, nama: 'Topik Hermawan' }
 ]);

@@ -86,6 +86,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* --- TAMPILAN DESKTOP (Default) --- */
 .report-layout {
   display: flex;
   gap: 3rem;
@@ -101,6 +102,8 @@ onUnmounted(() => {
   padding: 1.5rem;
   border-radius: 16px;
   border: 1px solid #262626;
+  /* Mencegah padding membuat elemen lebih lebar dari seharusnya */
+  box-sizing: border-box; 
 }
 
 .btn-scroll {
@@ -120,6 +123,11 @@ onUnmounted(() => {
   font-size: 0.9rem;
 }
 
+.speed-control input {
+  width: 100%;
+  margin-top: 5px;
+}
+
 .divider { border: 0.5px solid #262626; margin: 1rem 0; }
 
 .content {
@@ -127,6 +135,9 @@ onUnmounted(() => {
   font-size: 1.25rem;
   line-height: 2;
   color: #e4e4e7;
+  /* Memastikan teks yang sangat panjang tidak menabrak batas layar */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .section { margin-bottom: 8rem; }
@@ -141,4 +152,31 @@ li {
   transition: 0.3s;
 }
 li:hover { color: #9333ea; padding-left: 5px; }
+
+/* =========================================
+   TAMPILAN RESPONSIVE KHUSUS MOBILE (HP) 
+   ========================================= */
+@media (max-width: 768px) {
+  .report-layout {
+    flex-direction: column; /* Mengubah layout menjadi atas-bawah */
+    gap: 1.5rem;
+    padding: 15px;
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar menyesuaikan lebar layar penuh di HP */
+    position: relative; /* Menghilangkan efek sticky agar tidak terus-terusan menutupi layar HP */
+    top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .content {
+    font-size: 1.1rem; /* Sedikit memperkecil teks agar lebih nyaman dibaca di layar kecil */
+    line-height: 1.8;
+  }
+
+  .section { 
+    margin-bottom: 4rem; /* Mengurangi jarak kosong yang terlalu besar antar bab di HP */
+  }
+}
 </style>
